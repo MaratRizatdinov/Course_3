@@ -30,17 +30,29 @@ export function renderStartPage({contentElement,levelOfGame}){
                 levelOfGame = window.localStorage.getItem('level');
                 startButton.disabled=false;
                 startButton.classList.remove('select__startbutton--disabled');
+                
             });
         }
-
-        startButton.addEventListener('click', ()=>{
-            if(startButton.disabled == true) {
-                alert('Выберите сложность!');   
-                return;
-            }
-            console.log(levelOfGame);
-        })
-
-
-
 }
+
+export function renderEasyPage({contentElement}){
+    let easyPageContent =`<div class="select__container">
+                            <h1>Страница с легким уровнем</h1>
+                        </div>`;
+        contentElement.innerHTML = easyPageContent;        
+}
+
+export function renderMediumPage({contentElement}){
+    let mediumPageContent =`<div class="select__container">
+                            <h1>Страница со средним уровнем</h1>
+                        </div>`;
+        contentElement.innerHTML = mediumPageContent;        
+}
+
+export function renderHardPage({contentElement}){
+    let hardPageContent =`<div class="select__container">
+                            <h1>Страница с тяжелым уровнем</h1>
+                        </div>`;
+        contentElement.innerHTML = hardPageContent;        
+}
+
