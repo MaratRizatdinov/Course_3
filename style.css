@@ -94,4 +94,8 @@ body {
 }
 .select__startbutton--disabled, .select__startbutton--disabled--disabled {
   color: #c6cbcf;
+}
+
+h1 {
+  padding-top: 200px;
 }/*# sourceMappingURL=style.css.map */

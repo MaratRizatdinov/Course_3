@@ -35,6 +35,8 @@ export function renderStartPage({contentElement,levelOfGame}){
         }
 }
 
+//Страница-заглушка (легкий)
+
 export function renderEasyPage({contentElement}){
     let easyPageContent =`<div class="select__container">
                             <h1>Страница с легким уровнем</h1>
@@ -42,12 +44,16 @@ export function renderEasyPage({contentElement}){
         contentElement.innerHTML = easyPageContent;        
 }
 
+//Страница-заглушка (средний)
+
 export function renderMediumPage({contentElement}){
     let mediumPageContent =`<div class="select__container">
                             <h1>Страница со средним уровнем</h1>
                         </div>`;
         contentElement.innerHTML = mediumPageContent;        
 }
+
+//Страница-заглушка (тяжелый)
 
 export function renderHardPage({contentElement}){
     let hardPageContent =`<div class="select__container">

@@ -5,13 +5,15 @@ window.localStorage.removeItem('level');
 
 renderStartPage({contentElement,levelOfGame});
 
-let startButton =document.querySelector('.select__startbutton');
+let startButton = document.querySelector('.select__startbutton');
 
 startButton.addEventListener('click', ()=>{
+
     if(startButton.disabled == true) {
         alert('Выберите сложность!');   
         return;
     }
+    
     levelOfGame = window.localStorage.getItem('level');
     
     switch(levelOfGame){
