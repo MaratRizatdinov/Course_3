@@ -80,6 +80,16 @@ body{
         &--active{
             background-color: #9af5c3; 
         }
+        &:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s;
+        }
+        &:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s;
+        }
     }
     &__startbutton,
     &__startbutton--disabled{
@@ -102,6 +112,17 @@ body{
         &--disabled{
             color: #c6cbcf;
         }
+        &:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s;
+        }
+        &:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s;
+        }
+
     }
 }
 h1{

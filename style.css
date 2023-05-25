@@ -74,6 +74,16 @@ body {
 .select__levelbutton--active, .select__levelbutton--active--active {
   background-color: #9af5c3;
 }
+.select__levelbutton:hover, .select__levelbutton--active:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+}
+.select__levelbutton:active, .select__levelbutton--active:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+}
 .select__startbutton, .select__startbutton--disabled {
   margin-top: 48px;
   width: 246px;
@@ -94,6 +104,16 @@ body {
 }
 .select__startbutton--disabled, .select__startbutton--disabled--disabled {
   color: #c6cbcf;
+}
+.select__startbutton:hover, .select__startbutton--disabled:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+}
+.select__startbutton:active, .select__startbutton--disabled:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
 }
 
 h1 {
