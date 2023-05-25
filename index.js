@@ -3,7 +3,7 @@ let contentElement = document.querySelector('.container');
 let levelOfGame = 0;
 window.localStorage.removeItem('level');
 
-renderStartPage({contentElement,levelOfGame});
+renderStartPage({contentElement});
 
 let startButton = document.querySelector('.select__startbutton');
 
@@ -13,7 +13,7 @@ startButton.addEventListener('click', ()=>{
         alert('Выберите сложность!');   
         return;
     }
-    
+
     levelOfGame = window.localStorage.getItem('level');
     
     switch(levelOfGame){

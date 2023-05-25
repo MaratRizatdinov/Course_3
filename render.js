@@ -1,6 +1,6 @@
 //Стартовая страница
 
-export function renderStartPage({contentElement,levelOfGame}){
+export function renderStartPage({contentElement}){
     let selectPageContent =`<div class="select__container">
                             <div class="select__title">Выбери сложность</div>
                             <div class="select__levelsbox">
@@ -27,7 +27,6 @@ export function renderStartPage({contentElement,levelOfGame}){
                 key.classList.add('select__levelbutton--active');
                 window.localStorage.removeItem('level');
                 window.localStorage.setItem('level', key.textContent);
-                levelOfGame = window.localStorage.getItem('level');
                 startButton.disabled=false;
                 startButton.classList.remove('select__startbutton--disabled');
                 
