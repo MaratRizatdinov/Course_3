@@ -1,7 +1,11 @@
 import{renderStartPage , renderEasyPage , renderMediumPage , renderHardPage} from './render.js';
+import{createRandomCardCollection} from './tools.js';
 let contentElement = document.querySelector('.container');
-let levelOfGame = 0;
+let levelOfGame;
+let gameCardCollection;
+
 window.localStorage.removeItem('level');
+window.localStorage.removeItem('gameCardCollection');
 
 renderStartPage({contentElement});
 
@@ -16,6 +20,10 @@ startButton.addEventListener('click', ()=>{
 
     levelOfGame = window.localStorage.getItem('level');
     
+    createRandomCardCollection({levelOfGame});
+    gameCardCollection = JSON.parse(window.localStorage.getItem('gameCardCollection'));
+    console.log(gameCardCollection);
+    
     switch(levelOfGame){
         case '1' : renderEasyPage({contentElement});
         break;
@@ -27,6 +35,8 @@ startButton.addEventListener('click', ()=>{
         break;
     }
 })
+
+
 
 
 

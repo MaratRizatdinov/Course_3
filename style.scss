@@ -126,6 +126,17 @@ body{
 
     }
 }
+
+.card{
+    &__container{
+        width: 95px;
+        height: 133px;
+        background: #FFFFFF;
+        border-radius: 4px;
+        position: relative;
+    }
+}
+
 h1{
     padding-top: 190px;
 }
