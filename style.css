@@ -118,11 +118,23 @@ body {
 }
 
 .card__container {
+  display: grid;
+  gap: 15px;
+}
+.card__container--easy {
+  grid-template-columns: repeat(3, 1fr);
+}
+.card__container--medium {
+  grid-template-columns: repeat(4, 1fr);
+}
+.card__container--hard {
+  grid-template-columns: repeat(6, 1fr);
+}
+.card__items {
   width: 95px;
   height: 133px;
   background: #FFFFFF;
   border-radius: 4px;
-  position: relative;
 }
 
 h1 {

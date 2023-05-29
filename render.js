@@ -33,30 +33,31 @@ export function renderStartPage({contentElement}){
         }
 }
 
-//Страница-заглушка (легкий)
+//Страница-загрузка игры
 
-export function renderEasyPage({contentElement}){
-    let easyPageContent =`<div class="select__container">
-                            <h1>Страница с легким уровнем</h1>
-                        </div>`;
-        contentElement.innerHTML = easyPageContent;        
+export function renderGamePage({contentElement}){
+    
+    
+    let gamePageItems =``;
+    let level;
+        
+    let gameCards = JSON.parse(window.localStorage.getItem('gameCardCollection'));
+
+    for (let key of gameCards){
+        gamePageItems = gamePageItems + 
+        `<div class ='card__items'>
+            ${key}
+        </div>`;
+    }
+
+    if (gameCards.length==6) level='easy';
+    if (gameCards.length==12) level='medium';
+    if (gameCards.length==18) level='hard';
+
+    let gamePageContent =`<div class = "card__container card__container--${level}">${gamePageItems}</div>`;
+    
+
+    contentElement.innerHTML = gamePageContent;   
 }
 
-//Страница-заглушка (средний)
-
-export function renderMediumPage({contentElement}){
-    let mediumPageContent =`<div class="select__container">
-                            <h1>Страница со средним уровнем</h1>
-                        </div>`;
-        contentElement.innerHTML = mediumPageContent;        
-}
-
-//Страница-заглушка (тяжелый)
-
-export function renderHardPage({contentElement}){
-    let hardPageContent =`<div class="select__container">
-                            <h1>Страница с тяжелым уровнем</h1>
-                        </div>`;
-        contentElement.innerHTML = hardPageContent;        
-}
 
