@@ -25,7 +25,6 @@ export function renderStartPage({contentElement}){
                     key.classList.remove('select__levelbutton--active');    
                 }        
                 key.classList.add('select__levelbutton--active');
-                window.localStorage.removeItem('level');
                 window.localStorage.setItem('level', key.textContent);
                 startButton.disabled=false;
                 startButton.classList.remove('select__startbutton--disabled');

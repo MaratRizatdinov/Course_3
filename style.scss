@@ -77,18 +77,19 @@ body{
         color: #0080C1;
         justify-content: center;
         cursor: pointer;
+        border-radius: 12px;
         &--active{
             background-color: #9af5c3; 
         }
         &:hover{
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s;
+            transition: all 0.3s;
         }
         &:active {
             transform: translateY(-1px);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s;
+            transition: all 0.3s;
         }
     }
     &__startbutton,
@@ -115,7 +116,7 @@ body{
         &:hover{
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s;
+            transition: all 0.3s;
         }
         &:active {
             transform: translateY(-1px);
