@@ -19,6 +19,7 @@ body {
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .center {
@@ -29,7 +30,7 @@ body {
 .select__container {
   width: 480px;
   height: 459px;
-  background: #C2F5FF;
+  background: #c2f5ff;
   border-radius: 12px;
   display: flex;
   box-sizing: border-box;
@@ -67,7 +68,7 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
-  color: #0080C1;
+  color: #0080c1;
   justify-content: center;
   cursor: pointer;
   border-radius: 12px;
@@ -87,37 +88,10 @@ body {
 }
 .select__startbutton, .select__startbutton--disabled {
   margin-top: 48px;
-  width: 246px;
-  height: 50px;
-  background: #7AC100;
-  border-radius: 12px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 32px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  font-feature-settings: "pnum" on, "lnum" on;
-  color: #FFFFFF;
-  justify-content: center;
-  cursor: pointer;
-}
-.select__startbutton--disabled, .select__startbutton--disabled--disabled {
-  color: #c6cbcf;
-}
-.select__startbutton:hover, .select__startbutton--disabled:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s;
-}
-.select__startbutton:active, .select__startbutton--disabled:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.5s;
 }
 
 .card__container {
+  margin-top: 44px;
   display: grid;
   gap: 15px;
 }
@@ -130,13 +104,89 @@ body {
 .card__container--hard {
   grid-template-columns: repeat(6, 1fr);
 }
+.card__container--full {
+  grid-template-columns: repeat(9, 1fr);
+}
 .card__items {
   width: 95px;
   height: 133px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 4px;
 }
 
-h1 {
-  padding-top: 190px;
+.header__container {
+  width: 1024px;
+  height: 91px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 22px;
+  font-family: "StratosSkyeng";
+  font-style: normal;
+  font-weight: 400;
+  color: #ffffff;
+}
+.header__button {
+  margin-right: 22px;
+}
+.header__timerfield {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  height: 91px;
+  width: 155px;
+}
+.header__timertitle {
+  display: flex;
+  flex-direction: row;
+  width: 155px;
+  font-size: 16px;
+  line-height: 32px;
+  font-feature-settings: "pnum" on, "lnum" on;
+}
+.header__timerclock {
+  display: flex;
+  flex-direction: row;
+  font-size: 64px;
+  line-height: 72px;
+}
+.header__timernamemin, .header__timernamesec {
+  display: flex;
+  width: 77.5px;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+.header__timernamesec {
+  padding-right: 6px;
+}
+
+.global__button {
+  width: 246px;
+  height: 50px;
+  background: #7ac100;
+  border-radius: 12px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #ffffff;
+  justify-content: center;
+  cursor: pointer;
+}
+.global__button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+.global__button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+}
+.global__button--disabled {
+  color: #c6cbcf;
 }/*# sourceMappingURL=style.css.map */
