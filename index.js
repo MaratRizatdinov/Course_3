@@ -2,9 +2,9 @@ import { renderStartPage, renderGamePage } from "./render.js";
 import { createRandomCardCollection } from "./tools.js";
 let contentElement = document.querySelector(".container");
 let levelOfGame;
+//let gameStatus;
 
-window.localStorage.removeItem("level");
-window.localStorage.removeItem("gameCardCollection");
+window.localStorage.removeItem("gameStatus");
 
 renderStartPage({ contentElement });
 

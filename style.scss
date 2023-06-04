@@ -1,10 +1,12 @@
+@font-face {
+    font-family: "StratosSkyeng";
+    src: url("./fonts/06\ 08_37_07638eff3360a9f7.40489498stratosskyengwebregular.woff2");
+}
+
 * {
     margin: 0;
     padding: 0;
-}
-@font-face {
-    font-family: "StratosSkyeng";
-    src: url(./fonts/06\ 08_37_07638eff3360a9f7.40489498stratosskyengwebregular.woff2);
+    font-family: StratosSkyeng, sans-serif;
 }
 
 body {
@@ -118,13 +120,51 @@ body {
         height: 133px;
         background: #ffffff;
         border-radius: 4px;
+        display: block;
+    }
+    &__firstSymbol,
+    &__fiveSymbol {
+        width: 11px;
+        height: 21px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+        font-feature-settings: "pnum" on, "lnum" on;
+        color: #000000;
+        padding-top: 6px;
+        padding-left: 9px;
+    }
+    &__fiveSymbol {
+        transform: rotate(-180deg);
+        align-self: flex-end;
+        padding-right: 78px;
+        padding-bottom: 6px;
+    }
+    &__secondSymbol {
+        width: 7px;
+        height: 5.7px;
+        padding-top: 3px;
+        padding-left: 12px;
+    }
+    &__fourSymbol {
+        padding-top: 1px;
+        transform: rotate(-180deg);
+        padding-left: 9px;
+    }
+    &__thirdSymbol {
+        padding-top: 19px;
+        padding-left: 32px;
+    }
+    &__centerPicture {
+        height: 26px;
+        width: 29px;
     }
 }
 .header {
     &__container {
         width: 1024px;
         height: 91px;
-        //border: 0.5px solid white;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;

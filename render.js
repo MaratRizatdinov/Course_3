@@ -1,6 +1,9 @@
 //Стартовая страница
 
 export function renderStartPage({ contentElement }) {
+    window.localStorage.removeItem("level");
+    window.localStorage.removeItem("gameCardCollection");
+
     let selectPageContent = `<div class="select__container">
                             <div class="select__title">Выбери сложность</div>
                             <div class="select__levelsbox">
@@ -34,81 +37,113 @@ export function renderStartPage({ contentElement }) {
 export function renderGamePage({ contentElement }) {
     let gamePageItems = ``;
     let fullGamePageItems = ``;
+    let gamePageContent = "";
     let level;
 
     let gameCards = JSON.parse(
         window.localStorage.getItem("gameCardCollection")
     );
 
+    let fullGameCards = JSON.parse(
+        window.localStorage.getItem("fullCardCollection")
+    );
+    let headerElement = `<div class="header__container">
+                            <div class="header__timerfield">
+                                <div class="header__timertitle">
+                                    <div class="header__timernamemin">min</div>
+                                    <div class="header__timernamesec">sec</div>
+                                </div>
+                                <div class="header__timerclock">
+                                    <div class="header__timercounter header__timercounter--decimin">0</div>
+                                    <div class="header__timercounter header__timercounter--min">0</div>
+                                    <div class="header__timercounter header__timercounter--point">.</div>
+                                    <div class="header__timercounter header__timercounter--decisec">0</div>
+                                    <div class="header__timercounter header__timercounter--sec">0</div>
+                                </div>
+                            </div>
+                            <div class="header__button global__button">Начать заново</div>
+                          </div>`;
+
     if (gameCards.length === 6) level = "easy";
     if (gameCards.length === 12) level = "medium";
     if (gameCards.length === 18) level = "hard";
 
-    let fullGameCards = JSON.parse(
-        window.localStorage.getItem("fullCardCollection")
-    );
-
-    for (let key of gameCards) {
-        gamePageItems =
-            gamePageItems +
-            `<div class ='card__items'>
-            ${key}
-        </div>`;
-    }
-
-    for (let key of fullGameCards) {
-        fullGamePageItems =
-            fullGamePageItems +
-            `<div class ='card__items'>
-            ${key}
-        </div>`;
-    }
-
-    let gamePageContent = `
-    <div class="header__container">
-        <div class="header__timerfield">
-            <div class="header__timertitle">
-                <div class="header__timernamemin">min</div>
-                <div class="header__timernamesec">sec</div>
-            </div>
-            <div class="header__timerclock">
-                <div class="header__timercounter header__timercounter--decimin">0</div>
-                <div class="header__timercounter header__timercounter--min">0</div>
-                <div class="header__timercounter header__timercounter--point">.</div>
-                <div class="header__timercounter header__timercounter--decisec">0</div>
-                <div class="header__timercounter header__timercounter--sec">0</div>
-            </div>
-        </div>
-        <div class="header__button global__button">Начать заново</div>
-    </div>    
+    gamePageContent = `${headerElement}+
+        
     <div class = "card__container card__container--full center">
-        ${fullGamePageItems}
+        ${getRenderElement(fullGamePageItems, fullGameCards)}
     </div>`;
+
+    // Первоначально показывем полную колоду
 
     contentElement.innerHTML = gamePageContent;
 
+    // По истечении указанного времени показываем игровую колоду
+
     setTimeout(() => {
-        gamePageContent = `
-    <div class="header__container">
-        <div class="header__timerfield">
-            <div class="header__timertitle">
-                <div class="header__timernamemin">min</div>
-                <div class="header__timernamesec">sec</div>
-            </div>
-            <div class="header__timerclock">
-                <div class="header__timercounter header__timercounter--decimin">0</div>
-                <div class="header__timercounter header__timercounter--min">0</div>
-                <div class="header__timercounter header__timercounter--point">.</div>
-                <div class="header__timercounter header__timercounter--decisec">0</div>
-                <div class="header__timercounter header__timercounter--sec">0</div>
-            </div>
-        </div>
-        <div class="header__button global__button">Начать заново</div>
-    </div>    
+        gamePageContent = `${headerElement}+
+            
     <div class = "card__container card__container--${level}">
-        ${gamePageItems}
+        ${getRenderElement(gamePageItems, gameCards)}
     </div>`;
 
         contentElement.innerHTML = gamePageContent;
-    }, 3000);
+        window.localStorage.setItem(
+            "gameStatus",
+            JSON.stringify("timeToRemember")
+        );
+    }, 2000);
 }
+
+// Функция подставляет рисунок масти
+
+function suitePict(suite) {
+    let picture = "";
+    if (suite === "s") {
+        picture = '"Spades.svg" alt="Пики"';
+        return picture;
+    }
+    if (suite === "d") {
+        picture = '"Diamonds.svg" alt="<Бубны>"';
+        return picture;
+    }
+    if (suite === "h") {
+        picture = '"Hearts.svg" alt="Червы"';
+        return picture;
+    }
+    if (suite === "c") {
+        picture = '"Clubs.svg" alt="Трефы"';
+        return picture;
+    }
+}
+//Функция генерирует контент игровых карт
+
+function getRenderElement(element, Arr) {
+    for (let key of Arr) {
+        element =
+            element +
+            `<div class ='card__items'
+                          data-suite=${key[1]}
+                          data-dignity=${key[0]}>
+
+                <div class ="card__firstSymbol">
+                    ${key[0] === "1" ? "10" : key[0]}
+                </div>
+                <div class ="card__secondSymbol">
+                    <img src=${suitePict(key[1])}>
+                </div>
+                <div class ="card__thirdSymbol">
+                    <img src=${suitePict(key[1])} class = 'card__centerPicture'>
+                </div>
+                <div class ="card__fourSymbol ">
+                    <img src=${suitePict(key[1])}>
+                </div>
+                <div class ="card__fiveSymbol">
+                    ${key[0] === "1" ? "10" : key[0]}
+                </div>
+             </div>`;
+    }
+
+    return element;
+}
+//----------------------------------------------------------------------------------------

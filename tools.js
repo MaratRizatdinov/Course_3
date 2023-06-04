@@ -4,22 +4,12 @@
 export function createRandomCardCollection({ levelOfGame }) {
     let fullCardCollection = [];
     let gameCardCollection = [];
-    let cardSuite = ["spades", "hearts", "diamonds", "clubs"];
-    let cardDignity = [
-        "ace",
-        "king",
-        "queen",
-        "jack",
-        "10",
-        "9",
-        "8",
-        "7",
-        "6",
-    ];
+    let cardSuite = ["s", "h", "d", "c"];
+    let cardDignity = ["A", "K", "Q", "J", "1", "9", "8", "7", "6"];
 
     for (let suite of cardSuite) {
         for (let dignity of cardDignity) {
-            fullCardCollection.push(dignity + " of " + suite);
+            fullCardCollection.push(dignity + suite);
         }
     }
     window.localStorage.setItem(
